@@ -28,7 +28,7 @@ class NanomsgConan(NxConanFile):
                       "NN_TESTS": "0",
                       "NN_TOOLS": "0",
                       "NN_ENABLE_NANOCAT": "0",
-                      "NN_STATIC_LIB": "0" if self.options.shared else "0"}
+                      "NN_STATIC_LIB": "0" if self.options.shared else "1"}
         cmake_defs.update(self.cmake_crt_linking_flags())
         cmake.configure(defs=cmake_defs, source_dir="nanomsg-{v}".format(v=self.version))
         cmake.build(target="install")
